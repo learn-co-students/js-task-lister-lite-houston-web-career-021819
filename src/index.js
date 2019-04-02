@@ -7,8 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault()
       let ul = document.querySelector("#list").querySelector('ul');
       let li = document.createElement('li');
-      li.innerText = input.value;
-      ul.append(li);
+      //to avoid duplicate tasks.
+      if (!ul.innerText.includes(input.value)){
+        li.innerHTML = `<strong>${input.value}</strong>`; //add some HTML style
+        ul.append(li);
+      };
     }));
   }
 })
